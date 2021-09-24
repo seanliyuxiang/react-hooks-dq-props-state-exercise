@@ -42,9 +42,19 @@ function MasterHog() {
         <img id="master-blaster" src={Master} alt="" />
       </div>
       <ul className="hoglist">
+        {/* <BabyHog banana={eyeColor} />
         <BabyHog banana={eyeColor} />
-        <BabyHog banana={eyeColor} />
-        <BabyHog banana={eyeColor} />
+        <BabyHog banana={eyeColor} /> */}
+
+        { offspring.map(singleBabyHog => <BabyHog
+                                          key={singleBabyHog.id}
+                                          name={singleBabyHog.name}
+                                          hobby={singleBabyHog.hobby}
+                                          eyeColor={eyeColor}
+                                          />
+                        )
+        }
+
       </ul>
     </div>
   );

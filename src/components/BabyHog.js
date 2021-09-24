@@ -22,7 +22,8 @@ function BabyHog(props) {
   function handleChangeWeight(e) {
     // how can we reuse this for both buttons?
     // perhaps something with e.target.name === "+"
-    if (e.target.value === 'Increase Weight') {
+
+    if (e.target.innerText === 'Increase Weight') {
       // setter function to set weight
       setWeight(weight + 20);
     } else { // "Decrease weight" button is clicked
@@ -32,17 +33,17 @@ function BabyHog(props) {
 
   return (
     <li className="hogbabies">
-      <h1>Name</h1>
-      <h3>Weight:</h3>
-      <h3>Hobby:</h3>
+      <h1>Name: {props.name}</h1>
+      <h3>Weight: {weight}</h3>
+      <h3>Hobby: {props.hobby}</h3>
       <h4>Eye Color: {props.eyeColor}</h4>
 
-      <button name="+">Increase Weight</button>
-      <button name="-">Decrease Weight</button>
+      <button name="+" onClick={handleChangeWeight}>Increase Weight</button>
+      <button name="-" onClick={handleChangeWeight}>Decrease Weight</button>
 
       <div className="hb-wrap">
         <img
-          src={eyeColorMapper[props.banana]}
+          src={eyeColorMapper[props.eyeColor]}
           style={{ height: "200px" }}
           alt="MasterBlasterJrJr"
         />
